@@ -1,5 +1,0 @@
-package blocks
-
-class TestBlock {
-
-}
