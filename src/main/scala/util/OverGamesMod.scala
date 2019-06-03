@@ -1,8 +1,9 @@
 package util
 
+import commands.Commands
 import net.minecraftforge.fml.common.{Mod, SidedProxy}
 import net.minecraftforge.fml.common.Mod.EventHandler
-import net.minecraftforge.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent}
+import net.minecraftforge.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent, FMLServerStartingEvent}
 import org.apache.logging.log4j.{LogManager, Logger}
 import proxies._
 
@@ -27,5 +28,9 @@ object OverGamesMod {
 
   @EventHandler def init(event: FMLInitializationEvent): Unit = {
     logger.info("Welcome, to the OVERGAMES!")
+  }
+
+  @EventHandler def serverLoad(event: FMLServerStartingEvent): Unit = {
+    Commands.allCommands.foreach(event.registerServerCommand)
   }
 }

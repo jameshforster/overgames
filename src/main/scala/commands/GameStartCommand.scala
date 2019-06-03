@@ -5,7 +5,7 @@ import net.minecraft.command.{CommandBase, ICommandSender}
 import net.minecraft.server.MinecraftServer
 import net.minecraft.util.text.{ITextComponent, TextComponentString}
 
-class GameStartCommand extends CommandBase {
+case class GameStartCommand() extends CommandBase {
   override def getName: String = "gameStart"
 
   override def getUsage(sender: ICommandSender): String = ""
